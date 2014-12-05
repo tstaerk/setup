@@ -26,9 +26,11 @@ sed -i "s/.*ForwardX11[^ ].*/ForwardX11 yes/g" /etc/ssh/ssh_config 2>/dev/null |
 # set an alias for ssh to work with graphical transmission
 cat >>/etc/bash.bashrc<<EOF
 alias ssh="ssh -Y"
+alias ll="ls -l"
 EOF
 cat >>/etc/profile.d/autoexec.sh<<EOF
 alias ssh="ssh -Y"
+alias ll="ls -l"
 EOF
 
 # set compose key

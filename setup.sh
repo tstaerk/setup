@@ -70,10 +70,36 @@ EOF
 # set close buttons to the left in case of Ubuntu´s MetaCity settings        
 gconftool-2 --unset /apps/metacity/general/button_layout 
 
-# make the key showing a screen to trigger the screensaver
+# make the key showing a screen to trigger the screensaver and the pause key the same
 newdatacount=$(($(cat ~/.kde4/share/config/khotkeysrc|grep DataCount |head -n1|sed "s/.*=//")+1))
 
 cat >>~/.kde4/share/config/khotkeysrc<<EOF
+[Data_5]
+Comment=Comment
+Enabled=true
+Name=pausespecialkey
+Type=SIMPLE_ACTION_DATA
+
+[Data_5Actions]
+ActionsCount=1
+
+[Data_5Actions0]
+CommandURL=qdbus org.kde.screensaver /ScreenSaver org.freedesktop.ScreenSaver.Lock
+Type=COMMAND_URL
+
+[Data_5Conditions]
+Comment=
+ConditionsCount=0
+
+[Data_5Triggers]
+Comment=Simple_action
+TriggersCount=1
+
+[Data_5Triggers0]
+Key=Browser
+Type=SHORTCUT
+Uuid={f1cf67f0-0a74-4e11-b813-426fb0de9a62}
+
 [Data_6]
 Comment=Comment
 Enabled=true

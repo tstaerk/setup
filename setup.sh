@@ -6,6 +6,10 @@
 
 # add user thorstenstaerk
 useradd -m thorstenstaerk -s /bin/bash
+cat >>/home/thorstenstaerk/.bashrc<<EOF
+alias ll="ls -Altr"
+EOF
+# ToDo: where is my user dir?
 
 # default to ssh -X
 sed -i "s/.*ForwardX11[^ ].*/ForwardX11 yes/g" /etc/ssh/ssh_config 2>/dev/null || echo "root's changes could not be done"
